@@ -1,29 +1,34 @@
 
-# Using Google Maps API (v3) with Rails (5.2)
+# Using Google Maps API (v3) with Rails To Implment GIS Example
 
-# Step-by-Step Tutorial
+## Ruby on Rails
 
-![intro image](/app/assets/images/intro.jpg "Intro Image")
+This application requires:
 
-In this tutorial we'll talk about how to use Google Maps API with Rails. We'll see some examples of using Static API and Javascript API, how to place a marker and how to update the marker position when we change a form input value. And finally how to update the input value by dragging the marker.
-All of this without using any gems.
+- Ruby 2.6.3
+- Rails 5.2.3
 
-Level: beginner
+Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
-Pre requisites: basic knowledge of Rails and Javascript
+## Getting Started
 
+```bash
+git clone git@github.com:m-huzaifa/gis-rails-example.git
+cd gis-rails-example
+```
 
-Please visit the link to view tutorial on Medium:
+## Setup
 
-https://medium.com/@pjbelo/using-google-maps-api-v3-with-rails-5-2-b066a4b2cf14
+```shell
+bin/setup
+```
+Run this again if you want a clear instance of **database**.
 
+### Set API Key
+**Note:** Rename local_env_example to local_env and put API key
 
-You can check the commit history for the different code versions.
+## Server
 
-To use this App you must setup your Google Maps API Key using rails credentials with the name: google_maps_api_key
-
-Please feel free to contact. I'll be glad to help if I can :-)
-
-Cheers,
-
-Paulo
+```shell
+rails s
+```
