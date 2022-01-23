@@ -32,3 +32,8 @@ Run this again if you want a clear instance of **database**.
 ```shell
 rails s
 ```
+
+# Using as GeoJSon
+### GeoJson endpoint is also added
+- **Route:** ```shell api/v1/geo_json?search=---```
+- **Note:** search paramter can be any street address, coordinates or IP address
