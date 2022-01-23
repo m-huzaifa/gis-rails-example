@@ -1,0 +1,38 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", initMap2);
+  </script>
+<% end %>
+
+<h1>Click on map to get charging station at that point / nearby</h1>
+<div id="map2" class="map"></div>
+
+<h1>Enter Address or Coordinates</h1>
+<%= form_tag charging_stations_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<h1>Charging Stations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">Name</th>
+      <th colspan="3">Address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charging_stations.each do |charging_station| %>
+      <tr>
+        <td colspan="3"><%= charging_station.name %></td>
+        <td colspan="3"><%= charging_station.full_address %></td>
+        <td colspan="3"><%= link_to 'Show', charging_station %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

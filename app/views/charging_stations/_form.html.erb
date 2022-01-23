@@ -1,0 +1,17 @@
+<%= form_with(model: charging_station, local: true) do |form| %>
+  <% if charging_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(charging_station.errors.count, "error") %> prohibited this charging_station from being saved:</h2>
+
+      <ul>
+      <% charging_station.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
