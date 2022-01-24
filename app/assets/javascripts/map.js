@@ -16,7 +16,7 @@ function initMap(lat, lng) {
   });
 }
 
-function initMap2(lat, lng) {
+function initMap2(lat, lng, marker) {
 	if (!lat || !lng){
 		lat = 40.05;
 		lng = -105.25;
@@ -24,16 +24,16 @@ function initMap2(lat, lng) {
 
   var myCoords = new google.maps.LatLng(lat, lng);
   var mapOptions = {
-      center: myCoords,
-      zoom: 14
+		center: myCoords,
+		zoom: 14
   };
 
   var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
 
   var marker = new google.maps.Marker({
-      position: myCoords,
-      animation: google.maps.Animation.DROP,
-      map: map
+		position: myCoords,
+		animation: google.maps.Animation.DROP,
+		map: map
   });
 
   function placeMarker(position, map) {
@@ -54,6 +54,6 @@ function initMap2(lat, lng) {
 		placeMarker(event.latLng, map);
 		coordinates = [event.latLng.lat(), event.latLng.lng()];
 
-		window.location = `charging_stations?search=${coordinates}`;
+		window.location = `charging_stations?coordinates=${coordinates}`;
   });
 }

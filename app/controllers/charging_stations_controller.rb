@@ -5,9 +5,23 @@ class ChargingStationsController < ApplicationController
   def index
     # @charging_stations = ChargingStation.all
     @charging_stations = []
-    if params[:search].present?
-      @charging_stations = ChargingStation.near(params[:search], 1, units: :km, :order => :distance)
-      # @lat = params[:search]
+    @lat = nil
+    @lng = nil
+
+    if params[:coordinates]
+      @lat = params[:coordinates].split(',')[0]
+      @lng = params[:coordinates].split(',')[1]
+    end
+
+    param = params[:search] || params[:coordinates]
+
+    if param
+      @charging_stations = ChargingStation.near(param, 1, units: :km, :order => :distance)
+
+      if !params[:coordinates] && @charging_stations.length > 0
+        @lat = @charging_stations.first&.latitude
+        @lng = @charging_stations.first&.longitude
+      end
     end
   end
 
